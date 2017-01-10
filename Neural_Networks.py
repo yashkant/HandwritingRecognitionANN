@@ -9,10 +9,10 @@ class Network (object) :
 	#instantiates the weights and biases parameters accordingly.
 	def __init__(self, layer_sizes) :
 		
-		self.layer_nos = len(layer_sizes)
-		self.layer_sizes = layer_sizes
-		self.nn_weights = [np.random.randn(r,c) for r,c in zip(layer_sizes[1:] , layer_sizes[:-1])]
-		self.nn_bias = [np.random.randn(r,1) for r in layer_sizes[1:]]
+		self.layer_nos= len(layer_sizes)
+		self.layer_sizes= layer_sizes
+		self.nn_weights= [np.random.randn(r,c) for r,c in zip(layer_sizes[1:] , layer_sizes[:-1])]
+		self.nn_bias= [np.random.randn(r,1) for r in layer_sizes[1:]]
 
 
 
@@ -46,6 +46,9 @@ class Network (object) :
 		differential_weight = [np.zeros(w.shape) for w in self.nn_weights]
 		differential_bias = [np.zeros(b.shape) for b in self.nn_bias]
 
+		# print np.shape(differential_bias[0])
+		# print np.shape(differential_bias[1])
+
 		for sample, result in batch:
 			
 			#Delta weight and Delta bias will have the same size as of nn_weights/differential_weight and nn_bias/ differential_bias repectively  
@@ -54,8 +57,11 @@ class Network (object) :
 			differential_weight = [dw + dew for dw , dew in zip(differential_weight, delta_weight)]
 			differential_bias = [db + deb for db, deb in zip (differential_bias, delta_bias)]
 
-		self.nn_weights = [nw - (learning_rate/len(batch))*dnw for nw, dnw in zip (nn_weights , differential_weight)]
-		self.nn_bias = [nb - (learning_rate/len(batch))*dnb for nb , dnb in zip(nn_bias, differential_bias)]
+		# print np.shape(differential_bias[0])
+		# print np.shape(differential_bias[1])
+
+		self.nn_weights = [nw - (learning_rate/len(batch))*dnw for nw, dnw in zip (self.nn_weights , differential_weight)]
+		self.nn_bias = [nb - (learning_rate/len(batch))*dnb for nb , dnb in zip(self.nn_bias, differential_bias)]
 
 
 	#Main Helper Function in using Gradient Descent Algorithm
@@ -70,8 +76,12 @@ class Network (object) :
 		activation = x
 		activations = [x]
 		zs = []
+		# print np.shape(self.nn_bias[0])
+		# print np.shape(self.nn_bias[1])
 		for b,w in zip(self.nn_bias, self.nn_weights):
 
+			#bug present in the size of nn_bias
+			# print b
 			z = np.dot(w,activation) + b
 			zs.append(z)
 
@@ -94,7 +104,7 @@ class Network (object) :
 			nabla_b[-l] = delta
 			nabla_w[-l] = np.dot(delta, activations[-l-1].transpose())
 
-		return (nabla_b, nabla_w)
+		return ( nabla_w,nabla_b)
 
 
 
@@ -106,20 +116,19 @@ class Network (object) :
 		if tester_data : tester_data_len  = len(tester_data)
 		trainer_data_len = len(trainer_data)
 
-		for epch in xrange(epochs):
+		for epoch in xrange(epochs):
 
 			random.shuffle(trainer_data)
 			batches = [trainer_data[i  : i + batch_size] for i in xrange(0, trainer_data_len, batch_size)]
 
-		#This loop actually carries out the training part.
-		for batch in batches :
-			self.operate_on_batch(batch, learning_rate)
+			#This loop actually carries out the training part.
+			for batch in batches :
+				self.operate_on_batch(batch, learning_rate)
 
-
-		if tester_data:
-			print "Epoch {0} : {1} / {2}".format(j,self.evaluate(tester_data), tester_data_len)
-		else:
-			print "Epoch {0} complete".format(j)
+			if tester_data:
+				print "Epoch {0} : {1} / {2}".format(epoch,self.evaluate(tester_data), tester_data_len)
+			else:
+				print "Epoch {0} complete".format(epoch)
 
 
 
