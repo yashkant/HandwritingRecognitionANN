@@ -26,7 +26,7 @@ class Network (object) :
 
 
 
-	#This the helper function used for testing the trained dataset
+	#This the helper function used for testing the trained model
 	#Works layer by layer takes in the entering data and produces the output data
 	def feedforward (self, entering_data):
 
