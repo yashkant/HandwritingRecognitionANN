@@ -20,14 +20,18 @@ dip = 255 - rimg
 dip = dip.astype(np.float32, copy=False)
 dip = dip/255
 
-cv2.imshow('Dip', dip)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+
 dip = np.reshape(dip,(784,1))
 
 for a in dip :
 	if(a[0] < 0.43):
 		a[0] = 0
+
+dip = np.reshape(dip,(28,28))
+cv2.imshow('Dip', dip)
+cv2.waitKey(0)
+dip = np.reshape(dip,(784,1))
+
 #print dip
 #dip is finally ready to be tested using the network 
 
@@ -35,16 +39,10 @@ for a in dip :
 train_data , validate_date , test_data = lm.prepare_dataset()
 #print test_data[0][0]
 net = nn.Network([784,30,20,10])
-net.stochastic_gradient_descent(train_data,30,10,3.0,test_data)
+net.stochastic_gradient_descent(train_data,30,10,2.0,test_data)
 print net.feedforward(dip)
 print np.argmax(net.feedforward(dip))
 # print '{0} -> {1}'.format(np.argmax(net.feedforward(dip)), 2)
 
 #Images captured with devices would also require contrast adjustments since binarizing has not been a good alternative 
 
-"""Sample Code to read the MNIST Dataset. """
-# train_data , validate_date , test_data = lm.prepare_dataset()
-# aas = test_data[0][0].reshape((28,28))
-# cv2.imshow('Test',aas) 
-# cv2.waitKey(0)
-# cv2.destroyAllWindows()
