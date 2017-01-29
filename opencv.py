@@ -4,7 +4,7 @@ import Neural_Networks as nn
 import Load_MNIST as lm 
 
 
-img = cv2.imread('1.jpg')
+img = cv2.imread('8.jpg')
 #cv2.imshow('Image',img)
 rimg = cv2.resize(img, (28,28))
 rimg = cv2.cvtColor( rimg, cv2.COLOR_RGB2GRAY )
@@ -26,6 +26,8 @@ dip = np.reshape(dip,(784,1))
 for a in dip :
 	if(a[0] < 0.43):
 		a[0] = 0
+	if(a[0] > 0.6):
+		a[0] = 1
 
 dip = np.reshape(dip,(28,28))
 cv2.imshow('Dip', dip)
@@ -39,7 +41,7 @@ dip = np.reshape(dip,(784,1))
 train_data , validate_date , test_data = lm.prepare_dataset()
 #print test_data[0][0]
 net = nn.Network([784,30,20,10])
-net.stochastic_gradient_descent(train_data,30,10,2.0,test_data)
+net.stochastic_gradient_descent(train_data,30,10,3.0,test_data)
 print net.feedforward(dip)
 print np.argmax(net.feedforward(dip))
 # print '{0} -> {1}'.format(np.argmax(net.feedforward(dip)), 2)

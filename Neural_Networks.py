@@ -13,8 +13,9 @@ class Network (object) :
 		self.layer_sizes= layer_sizes
 		self.nn_weights= [np.random.randn(r,c) for r,c in zip(layer_sizes[1:] , layer_sizes[:-1])]
 		self.nn_bias= [np.random.randn(r,1) for r in layer_sizes[1:]]
-
-
+		self.batch_size = 0
+		self.epochs = 0
+		self.learning_rate = 0
 
 	#This function takes in the test data runs it 
 	#on to the model, returns the no of samples which 
@@ -46,9 +47,6 @@ class Network (object) :
 		differential_weight = [np.zeros(w.shape) for w in self.nn_weights]
 		differential_bias = [np.zeros(b.shape) for b in self.nn_bias]
 
-		# print np.shape(differential_bias[0])
-		# print np.shape(differential_bias[1])
-
 		for sample, result in batch:
 			
 			#Delta weight and Delta bias will have the same size as of nn_weights/differential_weight and nn_bias/ differential_bias repectively  
@@ -56,9 +54,6 @@ class Network (object) :
 
 			differential_weight = [dw + dew for dw , dew in zip(differential_weight, delta_weight)]
 			differential_bias = [db + deb for db, deb in zip (differential_bias, delta_bias)]
-
-		# print np.shape(differential_bias[0])
-		# print np.shape(differential_bias[1])
 
 		self.nn_weights = [nw - (learning_rate/len(batch))*dnw for nw, dnw in zip (self.nn_weights , differential_weight)]
 		self.nn_bias = [nb - (learning_rate/len(batch))*dnb for nb , dnb in zip(self.nn_bias, differential_bias)]
@@ -113,6 +108,9 @@ class Network (object) :
 
 	def stochastic_gradient_descent(self, trainer_data , epochs , batch_size , learning_rate , tester_data = None ) :
 
+		self.learning_rate = learning_rate
+		self.batch_size = batch_size
+		self.epochs = epochs
 		if tester_data : tester_data_len  = len(tester_data)
 		trainer_data_len = len(trainer_data)
 
@@ -129,6 +127,49 @@ class Network (object) :
 				print "Epoch {0} : {1} / {2}".format(epoch,self.evaluate(tester_data), tester_data_len)
 			else:
 				print "Epoch {0} complete".format(epoch)
+
+
+	def save(self, filename='model.npz'):
+        """Save weights, biases and hyperparameters of neural network to a
+        compressed binary. This ``.npz`` binary is saved in 'models' directory.
+        Parameters
+        ----------
+        filename : str, optional
+            Name of the ``.npz`` compressed binary in to be saved.
+        """
+        np.savez_compressed(
+            file=os.path.join(os.curdir, 'models', filename),
+            nn_weights=self.nn_weights,
+            nn_bias=self.nn_bias,
+            batch_size=self.batch_size,
+            epochs=self.epochs,
+            learning_rate=self.learning_rate
+        )
+
+    def load(self, filename='model.npz'):
+        """Prepare a neural network from a compressed binary containing weights
+        and biases arrays. Size of layers are derived from dimensions of
+        numpy arrays.
+        Parameters
+        ----------
+        filename : str, optional
+            Name of the ``.npz`` compressed binary in models directory.
+        """
+        npz_members = np.load(os.path.join(os.curdir, 'models', filename))
+
+        self.nn_weights = list(npz_members['nn_weights'])
+        self.nn_bias = list(npz_members['nn_bias'])
+
+        # Bias vectors of each layer has same length as the number of neurons
+        # in that layer. So we can build `sizes` through biases vectors.
+        self.layer_sizes = [b.shape[0] for b in self.nn_bias]
+        self.layer_nos = len(self.layer_sizes)
+
+        # Other hyperparameters are set as specified in model. These were cast
+        # to numpy arrays for saving in the compressed binary.
+        self.batch_size = int(npz_members['batch_size'])
+        self.epochs = int(npz_members['epochs'])
+        self.learning_rate = float(npz_members['learning_rate'])
 
 
 
