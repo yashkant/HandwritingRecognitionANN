@@ -1,6 +1,6 @@
 import random
 import numpy as np 
-
+import os
 
 class Network (object) :
 
@@ -130,46 +130,33 @@ class Network (object) :
 
 
 	def save(self, filename='model.npz'):
-        """Save weights, biases and hyperparameters of neural network to a
-        compressed binary. This ``.npz`` binary is saved in 'models' directory.
-        Parameters
-        ----------
-        filename : str, optional
-            Name of the ``.npz`` compressed binary in to be saved.
-        """
-        np.savez_compressed(
-            file=os.path.join(os.curdir, 'models', filename),
-            nn_weights=self.nn_weights,
-            nn_bias=self.nn_bias,
-            batch_size=self.batch_size,
-            epochs=self.epochs,
-            learning_rate=self.learning_rate
-        )
+		
+		np.savez_compressed(
+			file=os.path.join(os.curdir, 'models', filename),
+			nn_weights=self.nn_weights,
+			nn_bias=self.nn_bias,
+			batch_size=self.batch_size,
+			epochs=self.epochs,
+			learning_rate=self.learning_rate
+		)
 
-    def load(self, filename='model.npz'):
-        """Prepare a neural network from a compressed binary containing weights
-        and biases arrays. Size of layers are derived from dimensions of
-        numpy arrays.
-        Parameters
-        ----------
-        filename : str, optional
-            Name of the ``.npz`` compressed binary in models directory.
-        """
-        npz_members = np.load(os.path.join(os.curdir, 'models', filename))
+	def load(self, filename='model.npz'):
+		
+		npz_members = np.load(os.path.join(os.curdir, 'models', filename))
 
-        self.nn_weights = list(npz_members['nn_weights'])
-        self.nn_bias = list(npz_members['nn_bias'])
+		self.nn_weights = list(npz_members['nn_weights'])
+		self.nn_bias = list(npz_members['nn_bias'])
 
-        # Bias vectors of each layer has same length as the number of neurons
-        # in that layer. So we can build `sizes` through biases vectors.
-        self.layer_sizes = [b.shape[0] for b in self.nn_bias]
-        self.layer_nos = len(self.layer_sizes)
+		# Bias vectors of each layer has same length as the number of neurons
+		# in that layer. So we can build `sizes` through biases vectors.
+		self.layer_sizes = [b.shape[0] for b in self.nn_bias]
+		self.layer_nos = len(self.layer_sizes)
 
-        # Other hyperparameters are set as specified in model. These were cast
-        # to numpy arrays for saving in the compressed binary.
-        self.batch_size = int(npz_members['batch_size'])
-        self.epochs = int(npz_members['epochs'])
-        self.learning_rate = float(npz_members['learning_rate'])
+		# Other hyperparameters are set as specified in model. These were cast
+		# to numpy arrays for saving in the compressed binary.
+		self.batch_size = int(npz_members['batch_size'])
+		self.epochs = int(npz_members['epochs'])
+		self.learning_rate = float(npz_members['learning_rate'])
 
 
 
