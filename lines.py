@@ -4,6 +4,7 @@ import math
 import scipy.misc
 import os
 
+#This function extracts the opposite points of a rectangle.
 def getp(rect):
 	x1 = width; y1 = height ; x2 = 0; y2 = 0
 	
@@ -22,6 +23,15 @@ def getp(rect):
 	
 	return [[x1,x2],[y1,y2]]
 
+#This function arranges the images in order from left to right 
+def arrange(rects):
+	ar = [[[1001]]]
+	for r in rects:
+		tr = getp(r)
+		for i in range(0, len(ar)):
+			if(tr[0][0] < ar[i][0][0]):
+				ar.insert(i,tr)
+	return ar
 
 def saveimages(crops):
 	for i in range(1,len(crops)+1) :
@@ -34,15 +44,32 @@ def savedata(crops):
 		crops[i].dump("data" + str(i+1) +".data")
 	os.chdir(cwd)
 
+#Fixme
+#This function provides us with six nearly equal rectangles 
+def filter(rects):
+	tps = [[0]]
+	for r in rects:
+		area = cv2.contourArea(r)
+		print area
+		for tp in tps:
+			if(area > 0.8*tp[0] and area < 1.2*tp[0]):
+				tp.append(r)
+				continue
+		tps.append([area,r])
+	for tp in tps:
+		if (len(tp) == 7 and tp[0] > 28*28):
+			return tp[1:]
+			
 
-im = cv2.imread('box.jpg')
+im = cv2.imread('sample_box.png')
 #Saves the dimens of image, I wish to resize the image proportional to its original dimensions.
-#The scaling factor is such that height will be greater than or equal to 500.
+#The scaling factor is such that width will be 1000 else lesser for low pixel image.
+
 height,width = im.shape[:2]
 
-rheight = 1000
-sfactor = float(height)/rheight
-rwidth = int(math.ceil(float(width)/sfactor ))
+rwidth = 1000
+sfactor = float(width)/rwidth
+rheight = int(math.ceil(float(height)/sfactor ))
 if(sfactor > 1):
 	im = cv2.resize(im, (rwidth,rheight))
 
@@ -79,11 +106,18 @@ for i in range(0,len(contours)) :
 rects = []
 for i in range(0,len(approx)):
 	if(len(approx[i]) == 4):
-		rects.append(getp(approx[i]))
+		rects.append(approx[i])
 
-#Now cropping the required images 
+#Filter unnecessary rectangles if detected.
+if(len(rects) > 6):
+	rects = filter(rects)
+
+#Arrange and put in opposite points 
+rects = arrange(rects)
+
+#Now cropping the required images from the given points 
 crops = []
-for r in rects:
+for r in rectp:
 	crops.append( im[ r[1][0]:r[1][1], r[0][0]:r[0][1] ] )
 
 saveimages(crops)
