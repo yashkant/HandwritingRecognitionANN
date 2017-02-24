@@ -13,7 +13,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
-public class Main2Activity extends AppCompatActivity {
+public class zMain2Activity extends AppCompatActivity {
     private static final int SELECT_PICTURE = 1;
     ImageView imgBG;
 

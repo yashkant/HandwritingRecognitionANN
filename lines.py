@@ -23,15 +23,17 @@ def getp(rect):
 	
 	return [[x1,x2],[y1,y2]]
 
-#This function arranges the images in order from left to right 
+#This function arranges the images in order from left to right and also gets the diagonal points 
 def arrange(rects):
 	ar = [[[1001]]]
 	for r in rects:
 		tr = getp(r)
+		print tr
 		for i in range(0, len(ar)):
 			if(tr[0][0] < ar[i][0][0]):
 				ar.insert(i,tr)
-	return ar
+				break
+	return ar[:-1]
 
 def saveimages(crops):
 	for i in range(1,len(crops)+1) :
@@ -44,24 +46,25 @@ def savedata(crops):
 		crops[i].dump("data" + str(i+1) +".data")
 	os.chdir(cwd)
 
-#Fixme
 #This function provides us with six nearly equal rectangles 
 def filter(rects):
 	tps = [[0]]
 	for r in rects:
 		area = cv2.contourArea(r)
 		print area
+		x = True
 		for tp in tps:
 			if(area > 0.8*tp[0] and area < 1.2*tp[0]):
 				tp.append(r)
-				continue
-		tps.append([area,r])
+				x = False
+		if(x):
+			tps.append([area,r])
 	for tp in tps:
 		if (len(tp) == 7 and tp[0] > 28*28):
 			return tp[1:]
 			
 
-im = cv2.imread('sample_box.png')
+im = cv2.imread('nnsample_box.png')
 #Saves the dimens of image, I wish to resize the image proportional to its original dimensions.
 #The scaling factor is such that width will be 1000 else lesser for low pixel image.
 
@@ -84,7 +87,8 @@ ret,thresh = cv2.threshold(imgray,125,255,0)
 thresh = (255-thresh)
 #Closing is dialation followed by erosion helps to fill out the gaps left out by creases in paper or disconnected components.
 #Size of kernel is area of sliding window, I think it should be proportional to the size of image/boxes we will be using.
-kernel = np.ones((30,30), np.uint8)
+ki = int(math.ceil(float(width)/100))
+kernel = np.ones((4,4), np.uint8)
 thresh = cv2.morphologyEx(thresh, cv2.MORPH_CLOSE, kernel)
 
 
@@ -96,11 +100,16 @@ thresh = cv2.morphologyEx(thresh, cv2.MORPH_CLOSE, kernel)
 thresh2=thresh.copy()
 im2, contours, hierarchy = cv2.findContours(thresh,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
 
+
+
+
 #Contour Approximation to detect shapes.
 approx = []
 for i in range(0,len(contours)) :
-	epsilon = 0.1*cv2.arcLength (contours[i],True)
+	epsilon = 0.025*cv2.arcLength (contours[i],True)
+	print epsilon
 	approx.append(cv2.approxPolyDP(contours[i],epsilon,True))
+
 
 #Separate the ones which are rectangles and get their opposite boundary points. :)
 rects = []
@@ -108,47 +117,56 @@ for i in range(0,len(approx)):
 	if(len(approx[i]) == 4):
 		rects.append(approx[i])
 
+
+
+
+
+
 #Filter unnecessary rectangles if detected.
 if(len(rects) > 6):
 	rects = filter(rects)
 
-#Arrange and put in opposite points 
-rects = arrange(rects)
+
+#Arrange in ascending order of x and put in opposite points 
+frects = arrange(rects)
 
 #Now cropping the required images from the given points 
 crops = []
-for r in rectp:
+for r in frects:
 	crops.append( im[ r[1][0]:r[1][1], r[0][0]:r[0][1] ] )
 
 saveimages(crops)
 
 
-cv2.imshow('Resized',im)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
-
-imc = im.copy()
-for i in range(0,len(contours)) :
-	area = cv2.contourArea(contours[i])	
-	cv2.drawContours(im,contours,i,(0,255,0),2)
-	cv2.imshow('before',im)
-	cv2.drawContours(imc,approx,i,(0,255,0),2)
-	cv2.imshow('after',imc)
-	print "Area = " + str(area)+"    " +str(len(contours[i])) + "    " +str(i)
-	print "Area = " + str(area)+"    " +str(len(approx[i])) + "    " +str(i)
-	cv2.waitKey(0)
-	cv2.destroyAllWindows()
 
 
 
+# cv2.imshow('Resized',im)
+# cv2.waitKey(0)
+# cv2.destroyAllWindows()
+
+# imc = im.copy()
+# for i in range(0,len(rects)) :
+# 	area = cv2.contourArea(rects[i])
+# 	cv2.drawContours(im,rects,i,(0,255,0),2)
+# 	cv2.imshow('filtered',im)
+# 	print "Area = " + str(area)+"    " +str(len(contours[i])) + "    " +str(i)
+# 	print "Area = " + str(area)+"    " +str(len(approx[i])) + "    " +str(i)
+# 	cv2.waitKey(0)
+# 	cv2.destroyAllWindows()
 
 
-
-
-# for i in range(0,len(contours)) :
-# 	area = cv2.contourArea(contours[i])	
-# 	cv2.drawContours(im,contours,i,(0,255,0),2)
+# for i in range(0,len(rects)) :
+# 	area = cv2.contourArea(rects[i])
+# 	cv2.drawContours(im,rects,i,(((i%2)+1)*255,(i%2)*255,0),2)
 # 	cv2.imshow('before',im)
+# 	cv2.waitKey(0)
+# 	cv2.destroyAllWindows()
+
+
+
+
+
 # 	cv2.drawContours(imc,approx,i,(0,255,0),2)
 # 	cv2.imshow('after',imc)
 # 	print "Area = " + str(area)+"    " +str(len(contours[i])) + "    " +str(i)
