@@ -67,9 +67,7 @@ def filter(rects):
 im = cv2.imread('nnsample_box.png')
 #Saves the dimens of image, I wish to resize the image proportional to its original dimensions.
 #The scaling factor is such that width will be 1000 else lesser for low pixel image.
-
 height,width = im.shape[:2]
-
 rwidth = 1000
 sfactor = float(width)/rwidth
 rheight = int(math.ceil(float(height)/sfactor ))
@@ -88,9 +86,9 @@ thresh = (255-thresh)
 #Closing is dialation followed by erosion helps to fill out the gaps left out by creases in paper or disconnected components.
 #Size of kernel is area of sliding window, I think it should be proportional to the size of image/boxes we will be using.
 ki = int(math.ceil(float(width)/100))
+# kernel = np.ones((ki,ki), np.uint8)
 kernel = np.ones((4,4), np.uint8)
 thresh = cv2.morphologyEx(thresh, cv2.MORPH_CLOSE, kernel)
-
 
 #Countours are curves joining all the continuous points having same colour or intensity.
 #http://opencvpython.blogspot.in/2012/06/hi-this-article-is-tutorial-which-try.html
@@ -101,8 +99,6 @@ thresh2=thresh.copy()
 im2, contours, hierarchy = cv2.findContours(thresh,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
 
 
-
-
 #Contour Approximation to detect shapes.
 approx = []
 for i in range(0,len(contours)) :
@@ -111,26 +107,32 @@ for i in range(0,len(contours)) :
 	approx.append(cv2.approxPolyDP(contours[i],epsilon,True))
 
 
-#Separate the ones which are rectangles and get their opposite boundary points. :)
+#Separate the ones which are rectangles. :)
 rects = []
 for i in range(0,len(approx)):
 	if(len(approx[i]) == 4):
 		rects.append(approx[i])
 
-
-
-
-
-
 #Filter unnecessary rectangles if detected.
+#Change this 6 by the no of integers required to be detected from the image which are placed in boxes.
+
 if(len(rects) > 6):
 	rects = filter(rects)
 
+#Display detected rectangles not arranged on x axis till now.
+im = cv2.imread('nnsample_box.png')
+for i in range(0,len(rects)) :
+	area = cv2.contourArea(rects[i])
+	cv2.drawContours(im,rects,i,(((i%2)+1)*255,(i%2)*255,0),2)
+	cv2.imshow('before',im)
+	cv2.waitKey(0)
+	cv2.destroyAllWindows()
 
 #Arrange in ascending order of x and put in opposite points 
 frects = arrange(rects)
 
 #Now cropping the required images from the given points 
+im = cv2.imread('nnsample_box.png')
 crops = []
 for r in frects:
 	crops.append( im[ r[1][0]:r[1][1], r[0][0]:r[0][1] ] )
@@ -139,13 +141,11 @@ saveimages(crops)
 
 
 
-
-
-# cv2.imshow('Resized',im)
+# cv2.imshow('Resized',thresh)
 # cv2.waitKey(0)
 # cv2.destroyAllWindows()
 
-# imc = im.copy()
+
 # for i in range(0,len(rects)) :
 # 	area = cv2.contourArea(rects[i])
 # 	cv2.drawContours(im,rects,i,(0,255,0),2)
@@ -162,10 +162,6 @@ saveimages(crops)
 # 	cv2.imshow('before',im)
 # 	cv2.waitKey(0)
 # 	cv2.destroyAllWindows()
-
-
-
-
 
 # 	cv2.drawContours(imc,approx,i,(0,255,0),2)
 # 	cv2.imshow('after',imc)

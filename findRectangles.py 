@@ -1,13 +1,10 @@
 import cv2 
 import numpy as np 
-from matplotlib import pyplot as plt
 
 img = cv2.imread('test.jpg')
 img = cv2.resize(img, (1000,1000))
 img = cv2.cvtColor( img, cv2.COLOR_RGB2GRAY )
 blur = cv2.GaussianBlur(img,(5,5),0)
-x = cv2.cvtColor( blur, cv2.COLOR_RGBA2RGB )
-dst = cv2.fastNlMeansDenoisingColored(blur,None,10,10,7,21)
 
 #Better results are obtained after blurring and then threholding.
 #TODO : try with the images as well.
@@ -30,7 +27,10 @@ for k in lines:
 
 
 cv2.imshow('Dip', edges)
-cv2.imshow('Dip1', dst)
+cv2.imshow('Dip1', img)
 cv2.imshow('Dip2', th2)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
+
+
+

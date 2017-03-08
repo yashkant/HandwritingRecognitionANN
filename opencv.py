@@ -7,10 +7,8 @@ import Load_MNIST as lm
 
 
 img = cv2.imread('3a.jpg')
-#cv2.imshow('Image',img)
 rimg = cv2.resize(img, (100,100))
 rimg = cv2.GaussianBlur(rimg,(5,5),0)
-edges = cv2.Canny(gray,50,150,apertureSize = 3)
 
 cv2.imshow('Dip', rimg)
 cv2.imshow('Dip1', edges)
