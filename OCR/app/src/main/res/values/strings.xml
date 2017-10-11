@@ -1,0 +1,19 @@
+<resources>
+
+    <string name="app_name">OCR</string>
+    <string name="launch_camera">Launch Camera for recording</string>
+    <string name="launch_camera_stillshot">Launch Camera for Click</string>
+    <string name="launch_from_fragment">Launch sample from a Fragment</string>
+    <string name="launch_from_fragment_support">Launch sample from a Fragment (Support)</string>
+    <string name="length_limit">Length Limit</string>
+    <string name="zero_minutes">0 minutes</string>
+    <string name="allow_retry">Allow Retry</string>
+    <string name="auto_submit">Auto Submit</string>
+    <string name="portrait_warning">Show Portrait Warning</string>
+    <string name="default_front_facing">Default Front Facing</string>
+    <string name="save_folder">Save Folder</string>
+    <string name="camera_primary_color">Camera UI Color</string>
+    <string name="demo_from_fragment">Demo from fragment</string>
+    <string name="demo_from_activity">Demo from activity</string>
+
+</resources>
