@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/activity_horizontal_margin"
+        tools:ignore="UselessParent">
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:fontFamily="sans-serif-light"
+            android:gravity="center"
+            android:text="@string/demo_from_fragment"
+            tools:ignore="UnusedAttribute" />
+
+        <Button
+            android:id="@+id/launchCamera"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/margin_less"
+            android:padding="@dimen/mcam_content_inset"
+            android:text="@string/launch_camera"
+            android:theme="@style/ColoredButton" />
+
+        <Button
+            android:id="@+id/launchCameraStillshot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/margin_less"
+            android:padding="@dimen/mcam_content_inset"
+            android:text="@string/launch_camera_stillshot"
+            android:theme="@style/ColoredButton" />
+    </LinearLayout>
+
+</FrameLayout>
