@@ -11,6 +11,7 @@ import os
 from PIL import Image
 
 
+
 # In[185]:
 
 #This function extracts the opposite points of a rectangle.
@@ -83,11 +84,18 @@ def filter(rects):
 
 # In[191]:
 
-print os.getcwd()
-os.chdir('/home/yash/Desktop/Neural Networks/Handwriting Recognition')
+
+# print os.getcwd() 
+# print os.path.realpath(_0_file__)
+# file_path os.path.realpath(_0_file__)
+# file_name = os.path.basename()
+file_path = os.path.realpath(__file__)
+dir_path = file_path.rsplit('/',1)
+dir_path = dir_path[0]
+os.chdir(dir_path)
 #Saves the dimens of image, I wish to resize the image proportional to its original dimensions.
 #The scaling factor is such that width will be 1000 else lesser for low pixel image.
-im = cv2.imread('nnsample_box.png')
+im = cv2.imread('test.jpg')
 height,width = im.shape[:2]
 # rwidth = 1000
 # sfactor = float(width)/rwidth
@@ -105,7 +113,7 @@ imgray = cv2.fastNlMeansDenoising(imgray,None,10,7,21)
 ret,thresh = cv2.threshold(imgray,125,255,0)
 ret,thresh = cv2.threshold(imgray,125,255,0)
 thresh = (255-thresh)
-print os.getcwd()
+# print os.getcwd()
 #Closing is dialation followed by erosion helps to fill out the gaps left out by creases in paper or disconnected components.
 #Size of kernel is area of sliding window, I think it should be proportional to the size of image/boxes we will be using.
 ki = int(math.ceil(float(width)/100))
@@ -150,7 +158,7 @@ if(len(rects) > 6):
 # In[195]:
 
 #Display detected rectangles not arranged on x axis till now.
-im = cv2.imread('nnsample_box.png')
+im = cv2.imread('test.jpg')
 for i in range(0,len(rects)) :
 	area = cv2.contourArea(rects[i])
 	cv2.drawContours(im,rects,i,(((i%2)+1)*255,(i%2)*255,0),2)
@@ -166,7 +174,7 @@ for i in range(0,len(rects)) :
 frects = arrange(rects)
 
 #Cropping required from the inner sides of the edges.
-im = cv2.imread('nnsample_box.png')
+im = cv2.imread('test.jpg')
 
 crops = []
 for r in frects:
