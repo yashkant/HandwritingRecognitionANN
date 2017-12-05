@@ -85,8 +85,8 @@ def filter(rects):
 # In[191]:
 
 
-# print os.getcwd() 
-# print os.path.realpath(_0_file__)
+#print os.getcwd() 
+#print os.path.realpath(__file__)
 # file_path os.path.realpath(_0_file__)
 # file_name = os.path.basename()
 file_path = os.path.realpath(__file__)
@@ -111,15 +111,14 @@ imgray = cv2.fastNlMeansDenoising(imgray,None,10,7,21)
 
 #Thresholding requires a grayscale image 2nd param : threshvalue and 3rd param : maxValue of a pixel
 ret,thresh = cv2.threshold(imgray,125,255,0)
-ret,thresh = cv2.threshold(imgray,125,255,0)
 thresh = (255-thresh)
 # print os.getcwd()
 #Closing is dialation followed by erosion helps to fill out the gaps left out by creases in paper or disconnected components.
 #Size of kernel is area of sliding window, I think it should be proportional to the size of image/boxes we will be using.
-ki = int(math.ceil(float(width)/100))
+#ki = int(math.ceil(float(width)/100))
 # kernel = np.ones((ki,ki), np.uint8)
 kernel = np.ones((4,4), np.uint8)
-thresh = cv2.morphologyEx(thresh, cv2.MORPH_CLOSE, kernel)
+thresh = cv2.morphologyEx(thresh , cv2.MORPH_CLOSE, kernel)
 
 
 # In[193]:
@@ -130,7 +129,7 @@ thresh = cv2.morphologyEx(thresh, cv2.MORPH_CLOSE, kernel)
 #Whichever element of contoeur is to be drawn set the 2nd param accordingly on an index of zero, -1 to show all the contours 
 #Last arguement draws the boundary in pixels pass -1 for a filled image.
 thresh2=thresh.copy()
-im2, contours, hierarchy = cv2.findContours(thresh,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
+contours, hierarchy = cv2.findContours(thresh,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
 
 
 #Contour Approximation to detect shapes.
@@ -158,7 +157,7 @@ if(len(rects) > 6):
 # In[195]:
 
 #Display detected rectangles not arranged on x axis till now.
-im = cv2.imread('test.jpg')
+#im = cv2.imread('test.jpg')
 for i in range(0,len(rects)) :
 	area = cv2.contourArea(rects[i])
 	cv2.drawContours(im,rects,i,(((i%2)+1)*255,(i%2)*255,0),2)
@@ -174,7 +173,7 @@ for i in range(0,len(rects)) :
 frects = arrange(rects)
 
 #Cropping required from the inner sides of the edges.
-im = cv2.imread('test.jpg')
+#im = cv2.imread('test.jpg')
 
 crops = []
 for r in frects:
@@ -185,7 +184,6 @@ for crop in crops:
     cv2.destroyAllWindows()
     
 saveimages(crops)
-
 
 
 
