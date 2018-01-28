@@ -1,14 +1,14 @@
 import random
-import numpy as np 
+import numpy as np
 import os
 
-class Network (object) :
 
-	#This is the constructor, it takes in the the dimensions of neural
-	# network in form of the layer_sizes array and 
-	#instantiates the weights and biases parameters accordingly.
-	def __init__(self, layer_sizes) :
-		
+class Network (object):
+
+    # This is the constructor, it takes in the the dimensions of neural
+    # network in form of the layer_sizes array and
+    # instantiates the weights and biases parameters accordingly.
+    def __init__(self, layer_sizes):		
 		self.layer_nos= len(layer_sizes)
 		self.layer_sizes= layer_sizes
 		self.nn_weights= [np.random.randn(r,c) for r,c in zip(layer_sizes[1:] , layer_sizes[:-1])]
@@ -20,7 +20,7 @@ class Network (object) :
 	#This function takes in the test data runs it 
 	#on to the model, returns the no of samples which 
 	#passed the test.
-	def evaluate(self, tester_data) :
+    def evaluate(self, tester_data):
 
 		ans_array = [(np.argmax(self.feedforward(a)), b) for (a,b) in tester_data]
 		return sum(int(p == q) for (p,q) in ans_array)
@@ -29,7 +29,7 @@ class Network (object) :
 
 	#This the helper function used for testing the trained model
 	#Works layer by layer takes in the entering data and produces the output data
-	def feedforward (self, entering_data):
+    def feedforward (self, entering_data):
 
 		for b,w in zip(self.nn_bias, self.nn_weights):
 			entering_data = sigmoid(np.dot(w,entering_data) + b) 
@@ -42,7 +42,7 @@ class Network (object) :
 	#updates the current model with new weights and biases
 	#Although the it has a helper function backprop doing the job of finding
 	#change in biases and weights due to contribution of each sample 
-	def operate_on_batch(self, batch, learning_rate) :
+    def operate_on_batch(self, batch, learning_rate):
 
 		differential_weight = [np.zeros(w.shape) for w in self.nn_weights]
 		differential_bias = [np.zeros(b.shape) for b in self.nn_bias]
@@ -60,7 +60,7 @@ class Network (object) :
 
 
 	#Main Helper Function in using Gradient Descent Algorithm
-	def backprop(self, x, y) :
+    def backprop(self, x, y):
 		
 		nabla_w = [np.zeros(w.shape) for w in self.nn_weights]
 		nabla_b = [np.zeros(b.shape) for b in self.nn_bias]
@@ -106,7 +106,7 @@ class Network (object) :
 	#This the main function present inside the model that'll trigger the Schoastic Gradient Descent Algorithm and will train the model
 	#This will also test the model after training if the testing data is provided 
 
-	def stochastic_gradient_descent(self, trainer_data , epochs , batch_size , learning_rate , tester_data = None ) :
+    def stochastic_gradient_descent(self, trainer_data , epochs , batch_size , learning_rate , tester_data = None ):
 
 		self.learning_rate = learning_rate
 		self.batch_size = batch_size
@@ -129,7 +129,7 @@ class Network (object) :
 				print "Epoch {0} complete".format(epoch)
 
 
-	def save(self, filename='model.npz'):
+    def save(self, filename='model.npz'):
 		
 		np.savez_compressed(
 			file=os.path.join(os.curdir, 'models', filename),
@@ -140,7 +140,7 @@ class Network (object) :
 			learning_rate=self.learning_rate
 		)
 
-	def load(self, filename='model.npz'):
+    def load(self, filename='model.npz'):
 		
 		npz_members = np.load(os.path.join(os.curdir, 'models', filename))
 

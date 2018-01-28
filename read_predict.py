@@ -6,7 +6,7 @@
 import os
 import cv2 
 import numpy as np 
-os.chdir('/home/yash/Desktop/Neural Networks/Handwriting Recognition/')
+os.chdir('/home/mehak/Desktop/Neural Networks/Handwriting Recognition/')
 import Neural_Networks as nn 
 import Load_MNIST as lm
 import math
