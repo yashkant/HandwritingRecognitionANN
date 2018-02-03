@@ -7,16 +7,24 @@ import numpy as np
 # Load the classifier
 clf = joblib.load("digits_cls.pkl")
 
+
 # Read the input image 
-im = cv2.imread("test.jpg")
+img = cv2.imread("1234.jpeg")
+height, width = img.shape[:2]
+ratio = float(width)/float(height)
+newh = 560
+neww = 560*ratio
+
+im = cv2.resize(img,(int(neww), int(newh)), interpolation = cv2.INTER_CUBIC)
 
 # Convert to grayscale and apply Gaussian filtering
 im_gray = cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)
 im_gray = cv2.GaussianBlur(im_gray, (5, 5), 0)
 
 # Threshold the image
-ret, im_th = cv2.threshold(im_gray, 90, 255, cv2.THRESH_BINARY_INV)
-
+ret, im_th = cv2.threshold(im_gray, 130, 255, cv2.THRESH_BINARY_INV)
+#im_th = cv2.adaptiveThreshold(im_gray,255,cv2.ADAPTIVE_THRESH_MEAN_C,cv2.THRESH_BINARY_INV,11,12)
+cv2.imshow('a',im_th)
 # Find contours in the image
 ctrs, hier = cv2.findContours(im_th.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
@@ -42,4 +50,4 @@ for rect in rects:
     cv2.putText(im, str(int(nbr[0])), (rect[0], rect[1]),cv2.FONT_HERSHEY_DUPLEX, 2, (0, 255, 255), 3)
 
 cv2.imshow("Resulting Image with Rectangular ROIs", im)
-cv2.waitKey()
+cv2.waitKey()   
