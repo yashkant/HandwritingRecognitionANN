@@ -37,7 +37,7 @@ clf = LinearSVC()
 clf.fit(hog_features, labels)
 
 # Read the input image 
-im = cv2.imread("123.jpeg")
+im = cv2.imread("pic1.jpg")
 
 # Convert to grayscale and apply Gaussian filtering
 im_gray = cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)
@@ -61,14 +61,14 @@ for rect in rects:
     leng = int(rect[3] * 1.6)
     pt1 = int(rect[1] + rect[3] // 2 - leng // 2)
     pt2 = int(rect[0] + rect[2] // 2 - leng // 2)
-    roi = im_th[pt1:pt1+leng, pt2:pt2+leng]
+    roi = im_th[pt1:pt1 + leng, pt2:pt2 + leng]
     # Resize the image
     roi = cv2.resize(roi, (28, 28), interpolation=cv2.INTER_AREA)
     roi = cv2.dilate(roi, (3, 3))
     # Calculate the HOG features
     roi_hog_fd = hog(roi, orientations=9, pixels_per_cell=(14, 14), cells_per_block=(1, 1), visualise=False)
     nbr = clf.predict(np.array([roi_hog_fd], 'float64'))
-    cv2.putText(im, str(int(nbr[0])), (rect[0], rect[1]),cv2.FONT_HERSHEY_DUPLEX, 2, (0, 255, 255), 3)
+    cv2.putText(im, str(int(nbr[0])), (rect[0], rect[1]), cv2.FONT_HERSHEY_DUPLEX, 2, (0, 255, 255), 3)
 
 cv2.imshow("Resulting Image with Rectangular ROIs", im)
 cv2.waitKey()
