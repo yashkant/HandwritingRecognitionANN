@@ -6,7 +6,7 @@
 import os
 import cv2 
 import numpy as np 
-os.chdir('/home/yash/Desktop/Neural Networks/Handwriting Recognition/')
+os.chdir('/home/mehak/Documents/HandwritingRecognitionANN/')
 import Neural_Networks as nn 
 import Load_MNIST as lm
 import math
@@ -39,7 +39,7 @@ def show_image(im):
 
 #All the images are have dimensions greater than 50x50
 def crop(i):
-    os.chdir('/home/yash/Desktop/Neural Networks/Handwriting Recognition/outputs/images/')
+    os.chdir('/home/mehak/Documents/HandwritingRecognitionANN/outputs/images/')
     try:
         im = cv2.imread('outfile' +str(i)+ '.jpg')
         h,w = im.shape[:2]
@@ -68,7 +68,7 @@ def arrange(rects):
 # In[24]:
 
 def saveimages(crops):
-    for i in range(1,len(crops)+1) :
+    for i in range(1, len(crops)+1):
         print i
         scipy.misc.imsave('outfile'+str(i)+'.jpg', crops[i-1])
         
@@ -108,8 +108,9 @@ def filter(rects):
 #Setting to 650 by default change as required, lower than this won't be scaled.
 def initialize_image(file_name):
     im = cv2.imread(file_name)
-    height,width = im.shape[:2]
-    print height;print width
+    height, width = im.shape[:2]
+    print height
+    print width
     rwidth = 400
     sfactor = float(width)/rwidth
     rheight = int(math.ceil(float(height)/sfactor ))
@@ -136,7 +137,7 @@ def show_contours(rects):
 # get_list(1)
 
 def get_list(dir_no):
-    os.chdir('/home/yash/Desktop/Neural Networks/Handwriting Recognition/dataset/' )
+    os.chdir('/home/mehak/Documents/HandwritingRecognitionANN/DATASET/' )
     list = os.listdir(str(dir_no))
     return list
 
@@ -167,7 +168,7 @@ def make_train_set():
 #Process Images from a particular folder.
 #assuming present path to be at Handwriting Recoginition
 def process(dir_no, im_list):
-    os.chdir('/home/yash/Desktop/Neural Networks/Handwriting Recognition/dataset/' + str(dir_no) + '/')
+    os.chdir('/home/mehak/Documents/HandwritingRecognitionANN/DATASET/' + str(dir_no) + '/')
     print os.getcwd()
     x = []
     for im in im_list:
@@ -190,13 +191,12 @@ def process(dir_no, im_list):
 
 #Saves the dimens of image, I wish to resize the image proportional to its original dimensions.
 #The scaling factor is such that width will be 1000 else lesser for low pixel image.
-file_name = sys.argv[0]
-# file_name = 'nnsample_box.jpg'
+#file_name = sys.argv[0]
+file_name = 'test.jpg'
 im = initialize_image(file_name)
 height,width = im.shape[:2]
-print height 
+print height
 print width
-
 
 # In[34]:
 
@@ -219,7 +219,7 @@ thresh = cv2.morphologyEx(thresh, cv2.MORPH_CLOSE, kernel)
 #Whichever element of contoeur is to be drawn set the 2nd param accordingly on an index of zero, -1 to show all the contours 
 #Last arguement draws the boundary in pixels pass -1 for a filled image.
 thresh2=thresh.copy()
-im2, contours, hierarchy = cv2.findContours(thresh,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
+contours, hierarchy = cv2.findContours(thresh,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
 #Contour Approximation to detect shapes.
 approx = []
 for i in range(0,len(contours)) :
@@ -264,7 +264,7 @@ net.stochastic_gradient_descent(train_set,30,30,3.0)
 # np.shape(mnist.test.labels) Gives (10000, 10)
 # print(sess.run(tf.argmax(y,1), feed_dict={x: mnist.test.images})) Gives [7 2 1 ..., 4 8 6]
 """Give a proper Thresholding now."""
-os.chdir('/home/yash/Desktop/Neural Networks/Handwriting Recognition/')
+os.chdir('/home/mehak/Documents/HandwritingRecognitionANN/')
 def predict():
     x = []
     for crop in crops:
@@ -287,9 +287,3 @@ def predict():
 
 pin = predict()
 print pin
-
-
-# In[ ]:
-
-
-

@@ -3,20 +3,18 @@
 
 # In[184]:
 
-import cv2 
-import numpy as np 
-import math
+import cv2
+import numpy as np
 import scipy.misc
 import os
-from PIL import Image
-
-
 
 # In[185]:
 
 #This function extracts the opposite points of a rectangle.
+
+
 def getp(rect):
-    x = []; y=[];
+    x = [] ; y = [];
     for i in range(0,4):
         x.append(rect[i][0][0])
         y.append(rect[i][0][1])
@@ -159,11 +157,11 @@ if(len(rects) > 6):
 #Display detected rectangles not arranged on x axis till now.
 #im = cv2.imread('test.jpg')
 for i in range(0,len(rects)) :
-	area = cv2.contourArea(rects[i])
-	cv2.drawContours(im,rects,i,(((i%2)+1)*255,(i%2)*255,0),2)
-	cv2.imshow('before',im)
-	cv2.waitKey(0)
-	cv2.destroyAllWindows()
+    area = cv2.contourArea(rects[i])
+    cv2.drawContours(im,rects,i,(((i%2)+1)*255,(i%2)*255,0),2)
+    cv2.imshow('before', im)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
 
 
 # In[198]:
@@ -179,11 +177,11 @@ crops = []
 for r in frects:
     crops.append( im[ r[1][0]:r[1][1], r[0][0]:r[0][1] ] )
 for crop in crops:
-    cv2.imshow('crops',crop)
+    cv2.imshow('crops', crop)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
-    
+
 saveimages(crops)
 
 
-
+os.chdir()
