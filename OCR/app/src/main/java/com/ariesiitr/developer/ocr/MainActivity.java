@@ -34,6 +34,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import android.net.Uri;
 import java.net.URL;
+import java.net.URLConnection;
 import java.net.URLEncoder;
 import java.text.DecimalFormat;
 import java.util.HashMap;
@@ -49,6 +50,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
   private static final int PERMISSION_RQ = 84;
   ProgressDialog progressDialog ;
   Bitmap bitmap;
+  URLConnection myURLConnection;
+  URL myURL;
+  BufferedReader reader;
 
   boolean check = true;
   String GetImageNameEditText="ImageOfUse";
@@ -66,6 +70,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     final EditText num = (EditText)findViewById(R.id.phoneNum);
     Button send = (Button)findViewById(R.id.sendBtn);
 
+    final String authkey = "140306A0DRBmkqhhJw589a2609";
+    final String senderId = "CUSTOM";
+    final String message = "Test message";
+    final String route="4";
+
     send.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
@@ -73,7 +82,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
           Toast.makeText(MainActivity.this,"Invalid Mobile No.",Toast.LENGTH_SHORT).show();
         }
         else {
-          sendSMS(num.getText().toString(), "testing");
+          sendSMS(authkey, num.getText().toString(), message,route,senderId);
         }
       }
     });
@@ -92,7 +101,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
   }
 
-  public void sendSMS(String phoneNo, String msg) {
+  /*public void sendSMS(String phoneNo, String msg) {
     try {
       SmsManager smsManager = SmsManager.getDefault();
       smsManager.sendTextMessage(phoneNo, null, msg, null, null);
@@ -103,6 +112,51 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
               Toast.LENGTH_LONG).show();
       ex.printStackTrace();
     }
+  }*/
+
+  public void sendSMS(String authkey, String mobiles, String message, String route, String senderId ){
+    myURLConnection=null;
+    myURL=null;
+    reader=null;
+
+//encoding message
+    String encoded_message=URLEncoder.encode(message);
+
+//Send SMS API
+    String mainUrl="http://api.msg91.com/api/sendhttp.php?";
+
+//Prepare parameter string
+    StringBuilder sbPostData= new StringBuilder(mainUrl);
+    sbPostData.append("authkey="+authkey);
+    sbPostData.append("&mobiles="+mobiles);
+    sbPostData.append("&message="+encoded_message);
+    sbPostData.append("&route="+route);
+    sbPostData.append("&sender="+senderId);
+
+//final string
+    mainUrl = sbPostData.toString();
+    try
+    {
+      //prepare connection
+      myURL = new URL(mainUrl);
+      myURLConnection = myURL.openConnection();
+      myURLConnection.connect();
+      reader= new BufferedReader(new InputStreamReader(myURLConnection.getInputStream()));
+
+      //reading response
+      String response;
+      while ((response = reader.readLine()) != null)
+        //print response
+        Log.d("RESPONSE", ""+response);
+
+      //finally close connection
+      reader.close();
+    }
+    catch (IOException e)
+    {
+      e.printStackTrace();
+    }
+
   }
 
   private boolean isValidMobile(String phone) {
