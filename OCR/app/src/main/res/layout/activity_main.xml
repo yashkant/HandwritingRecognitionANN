@@ -33,6 +33,19 @@
             android:visibility="gone"
             android:theme="@style/ColoredButton" />
 
+        <EditText
+            android:id="@+id/phoneNum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="phone"/>
+
+        <Button
+            android:id="@+id/sendBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="send"
+            android:textAllCaps="true"/>
+
         <Button
             android:id="@+id/launchCameraStillshot"
             android:layout_width="match_parent"

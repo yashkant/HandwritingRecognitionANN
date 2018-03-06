@@ -13,9 +13,12 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.telephony.SmsManager;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 import com.afollestad.materialcamera.MaterialCamera;
 
@@ -35,6 +38,7 @@ import java.net.URLEncoder;
 import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 import javax.net.ssl.HttpsURLConnection;
 
@@ -57,8 +61,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-
     setContentView(R.layout.activity_main);
+
+    final EditText num = (EditText)findViewById(R.id.phoneNum);
+    Button send = (Button)findViewById(R.id.sendBtn);
+
+    send.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        if(!isValidMobile(num.getText().toString())){
+          Toast.makeText(MainActivity.this,"Invalid Mobile No.",Toast.LENGTH_SHORT).show();
+        }
+        else {
+          sendSMS(num.getText().toString(), "testing");
+        }
+      }
+    });
+
+
     findViewById(R.id.launchCamera).setOnClickListener(this);
     findViewById(R.id.launchCameraStillshot).setOnClickListener(this);
     findViewById(R.id.launchFromFragment).setOnClickListener(this);
@@ -72,6 +92,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
   }
 
+  public void sendSMS(String phoneNo, String msg) {
+    try {
+      SmsManager smsManager = SmsManager.getDefault();
+      smsManager.sendTextMessage(phoneNo, null, msg, null, null);
+      Toast.makeText(getApplicationContext(), "Message Sent",
+              Toast.LENGTH_LONG).show();
+    } catch (Exception ex) {
+      Toast.makeText(getApplicationContext(),ex.getMessage().toString(),
+              Toast.LENGTH_LONG).show();
+      ex.printStackTrace();
+    }
+  }
+
+  private boolean isValidMobile(String phone) {
+    boolean check=false;
+    if(!Pattern.matches("[a-zA-Z]+", phone) && Pattern.matches("^[789]\\d{9}$+",phone )) {
+      //if(phone.length() < 6 || phone.length() > 13) {
+         if(phone.length() != 10) {
+        check = false;
+      } else {
+        check = true;
+      }
+    } else {
+      check=false;
+    }
+    return check;
+  }
   @SuppressWarnings("ResultOfMethodCallIgnored")
   @Override
   public void onClick(View view) {
