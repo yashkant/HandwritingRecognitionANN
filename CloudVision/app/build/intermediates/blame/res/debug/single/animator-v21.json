@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "/home/manthan/Development/cloud-vision/android/CloudVision/app/build/intermediates/res/merged/debug/animator-v21/design_appbar_state_list_animator.xml",
+        "source": "/home/manthan/Development/cloud-vision/android/CloudVision/app/build/intermediates/exploded-aar/com.android.support/design/25.1.1/res/animator-v21/design_appbar_state_list_animator.xml"
+    },
+    {
+        "merged": "/home/mehak/Downloads/IOP_android/CloudVision/app/build/intermediates/res/merged/debug/animator-v21/design_appbar_state_list_animator.xml",
+        "source": "/home/mehak/Downloads/IOP_android/CloudVision/app/build/intermediates/exploded-aar/com.android.support/design/25.1.1/res/animator-v21/design_appbar_state_list_animator.xml"
+    },
+    {
+        "merged": "/home/mehak/Documents/HandwritingRecognitionANN/CloudVision/app/build/intermediates/res/merged/debug/animator-v21/design_appbar_state_list_animator.xml",
+        "source": "/home/mehak/Documents/HandwritingRecognitionANN/CloudVision/app/build/intermediates/exploded-aar/com.android.support/design/25.1.1/res/animator-v21/design_appbar_state_list_animator.xml"
+    }
+]

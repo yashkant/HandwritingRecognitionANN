@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "/home/manthan/Development/cloud-vision/android/CloudVision/app/build/intermediates/res/merged/debug/xml/provider_paths.xml",
+        "source": "/home/manthan/Development/cloud-vision/android/CloudVision/app/src/main/res/xml/provider_paths.xml"
+    },
+    {
+        "merged": "/home/mehak/Downloads/IOP_android/CloudVision/app/build/intermediates/res/merged/debug/xml/provider_paths.xml",
+        "source": "/home/mehak/Downloads/IOP_android/CloudVision/app/src/main/res/xml/provider_paths.xml"
+    },
+    {
+        "merged": "/home/mehak/Documents/HandwritingRecognitionANN/CloudVision/app/build/intermediates/res/merged/debug/xml/provider_paths.xml",
+        "source": "/home/mehak/Documents/HandwritingRecognitionANN/CloudVision/app/src/main/res/xml/provider_paths.xml"
+    }
+]

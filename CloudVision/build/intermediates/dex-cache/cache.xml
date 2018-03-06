@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/home/mehak/Documents/HandwritingRecognitionANN/CloudVision/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.1.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0d191c1a09e4892d059e5ce749e4ad4e08129e35">
+        <dex dex="/home/mehak/Documents/HandwritingRecognitionANN/CloudVision/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-25.1.1_d292cbd8dd676d2e958e57196fefd6bb5462f564.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mehak/Documents/HandwritingRecognitionANN/CloudVision/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.1.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c03bf57f358aa10d253f21989e93bcf6014b3b17">
+        <dex dex="/home/mehak/Documents/HandwritingRecognitionANN/CloudVision/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-25.1.1_98196ef6a3f839b1947eeef610d7deed34546b86.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mehak/.gradle/caches/modules-2/files-2.1/com.google.http-client/google-http-client-android/1.20.0/313dc99a7963523871495897ca11aa8472b3c6fd/google-http-client-android-1.20.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="313dc99a7963523871495897ca11aa8472b3c6fd">
+        <dex dex="/home/mehak/Documents/HandwritingRecognitionANN/CloudVision/app/build/intermediates/pre-dexed/debug/google-http-client-android-1.20.0_915d94ce34fbde6dda21814c384fdbeac997afc3.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mehak/Documents/HandwritingRecognitionANN/CloudVision/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/25.1.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c9649557905bf7a80fca9e0d54cbcb7662627860">
+        <dex dex="/home/mehak/Documents/HandwritingRecognitionANN/CloudVision/app/build/intermediates/pre-dexed/debug/com.android.support-recyclerview-v7-25.1.1_b3efba2bc155ccde0ac32908517f1a6d5d3d688f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mehak/Documents/HandwritingRecognitionANN/CloudVision/app/build/intermediates/exploded-aar/com.android.support/design/25.1.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="cd7951e04cfb9a8bf008d544a478d9a8d8192d38">
+        <dex dex="/home/mehak/Documents/HandwritingRecognitionANN/CloudVision/app/build/intermediates/pre-dexed/debug/com.android.support-design-25.1.1_b566102e5ad8aed160711f1b5e88e1e5a4f1e27a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mehak/Documents/HandwritingRecognitionANN/CloudVision/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ecb496cc08dd52551fc5ec6db3bc0632e95a89bb">
+        <dex dex="/home/mehak/Documents/HandwritingRecognitionANN/CloudVision/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-25.1.1_bf5200b54f715690f1a63bd1eb51901a256cad9a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mehak/Documents/HandwritingRecognitionANN/CloudVision/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.1.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="7bde4c34162092e0a77e7f12dc85ed77c484cf5c">
+        <dex dex="/home/mehak/Documents/HandwritingRecognitionANN/CloudVision/app/build/intermediates/pre-dexed/debug/com.android.support-support-media-compat-25.1.1_eebe455292a11cc9ad19a1987871c759d949ea94.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mehak/Documents/HandwritingRecognitionANN/CloudVision/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.1.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e2719c102dca3a7a5b02ce07f769362da6ddb4ab">
+        <dex dex="/home/mehak/Documents/HandwritingRecognitionANN/CloudVision/app/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-25.1.1_99fa8635d54edaa962b0ae4a6fa78d6f6d18f6f8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mehak/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.1.3/f6c3aed1cdfa21b5c1737c915186ea93a95a58bd/jackson-core-2.1.3.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f6c3aed1cdfa21b5c1737c915186ea93a95a58bd">
+        <dex dex="/home/mehak/Documents/HandwritingRecognitionANN/CloudVision/app/build/intermediates/pre-dexed/debug/jackson-core-2.1.3_c17f29718adb363cf27c609ca023351dec531d9f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mehak/Documents/HandwritingRecognitionANN/CloudVision/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.1.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="3e04ac8ca644ea7baddf6fdcf72e15c79e9df94a">
+        <dex dex="/home/mehak/Documents/HandwritingRecognitionANN/CloudVision/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-25.1.1_b24979e3d5f8305d05d1b2c421b5aa04f6ca41ef.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mehak/Documents/HandwritingRecognitionANN/CloudVision/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.1.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0fb891e8f0cfba0513043a7bb357513d229ca2cd">
+        <dex dex="/home/mehak/Documents/HandwritingRecognitionANN/CloudVision/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-utils-25.1.1_3d368707780c47964b13d9557e3a494e261c0c23.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mehak/.gradle/caches/modules-2/files-2.1/com.google.api-client/google-api-client/1.21.0/16a6b3c680f3bf7b81bb42790ff5c1b72c5bbedc/google-api-client-1.21.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="16a6b3c680f3bf7b81bb42790ff5c1b72c5bbedc">
+        <dex dex="/home/mehak/Documents/HandwritingRecognitionANN/CloudVision/app/build/intermediates/pre-dexed/debug/google-api-client-1.21.0_755daae7bf586cbcd14dd6e5cdc43ab73721c1ba.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mehak/.gradle/caches/modules-2/files-2.1/com.google.api-client/google-api-client-android/1.20.0/5673179575c32b69a474334255c3044adf18d40/google-api-client-android-1.20.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="05673179575c32b69a474334255c3044adf18d40">
+        <dex dex="/home/mehak/Documents/HandwritingRecognitionANN/CloudVision/app/build/intermediates/pre-dexed/debug/google-api-client-android-1.20.0_d41d421ca408fb7c1f95ec147a6c7af528e486ab.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/opt/android-studio/gradle/m2repository/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="40719ea6961c0cb6afaeb6a921eaa1f6afd4cfdf">
+        <dex dex="/home/mehak/Documents/HandwritingRecognitionANN/CloudVision/app/build/intermediates/pre-dexed/debug/jsr305-1.3.9_c585cfc852ada8b583a7df793bb10c689a916ded.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mehak/Documents/HandwritingRecognitionANN/CloudVision/app/build/intermediates/exploded-aar/com.android.support/transition/25.1.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="15b049fedbd8e3926bf99d9e45dfc9b2a1043bb9">
+        <dex dex="/home/mehak/Documents/HandwritingRecognitionANN/CloudVision/app/build/intermediates/pre-dexed/debug/com.android.support-transition-25.1.1_594cd458af1c39ecf1408098ef46c2300987b53d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mehak/.gradle/caches/modules-2/files-2.1/com.google.http-client/google-http-client/1.21.0/42631630fe1276d4d6d6397bb07d53a4e4fec278/google-http-client-1.21.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="42631630fe1276d4d6d6397bb07d53a4e4fec278">
+        <dex dex="/home/mehak/Documents/HandwritingRecognitionANN/CloudVision/app/build/intermediates/pre-dexed/debug/google-http-client-1.21.0_d90f4390562d83b793eeda794da20180fdcf8a24.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mehak/Documents/HandwritingRecognitionANN/CloudVision/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.1.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="02741d05d4b697fba5e279e9881aaa1da0ca7c7f">
+        <dex dex="/home/mehak/Documents/HandwritingRecognitionANN/CloudVision/app/build/intermediates/pre-dexed/debug/com.android.support-support-compat-25.1.1_315069d513050363e59c90c4ef2c595a1c9adb50.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mehak/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.1/2e66da15851f9f5b5079228f856c2f090ba98c38/gson-2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2e66da15851f9f5b5079228f856c2f090ba98c38">
+        <dex dex="/home/mehak/Documents/HandwritingRecognitionANN/CloudVision/app/build/intermediates/pre-dexed/debug/gson-2.1_fc2d6f34c826e4bc8056c331d8e4309176b162e9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mehak/.gradle/caches/modules-2/files-2.1/com.google.oauth-client/google-oauth-client/1.21.0/61ec42bbfc51aafde5eb8b4923c602c5b5965bc2/google-oauth-client-1.21.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="61ec42bbfc51aafde5eb8b4923c602c5b5965bc2">
+        <dex dex="/home/mehak/Documents/HandwritingRecognitionANN/CloudVision/app/build/intermediates/pre-dexed/debug/google-oauth-client-1.21.0_17b8e71798850b48284bdb6f7c905238129ba9ed.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mehak/.gradle/caches/modules-2/files-2.1/com.google.http-client/google-http-client-jackson2/1.21.0/8ce17bdd15fff0fd8cf359757f29e778fc7191ad/google-http-client-jackson2-1.21.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8ce17bdd15fff0fd8cf359757f29e778fc7191ad">
+        <dex dex="/home/mehak/Documents/HandwritingRecognitionANN/CloudVision/app/build/intermediates/pre-dexed/debug/google-http-client-jackson2-1.21.0_d01f37fd9554d0ecfcf759d959261ed5493b7e9c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mehak/Documents/HandwritingRecognitionANN/CloudVision/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.1.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/home/mehak/Documents/HandwritingRecognitionANN/CloudVision/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-25.1.1_9d1ee56da18bef09a9ee2c147741842f4a097ccf.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mehak/.gradle/caches/modules-2/files-2.1/com.google.apis/google-api-services-vision/v1-rev2-1.21.0/4db84d916e8ec80d9aa11c5f89a6cb6621ac1c85/google-api-services-vision-v1-rev2-1.21.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4db84d916e8ec80d9aa11c5f89a6cb6621ac1c85">
+        <dex dex="/home/mehak/Documents/HandwritingRecognitionANN/CloudVision/app/build/intermediates/pre-dexed/debug/google-api-services-vision-v1-rev2-1.21.0_ce205c2cb05f3defd35f888867f8345fc437e72a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mehak/.gradle/caches/modules-2/files-2.1/com.google.guava/guava-jdk5/17.0/463f8378feba44df7ba7cd9272d01837dad62b36/guava-jdk5-17.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="463f8378feba44df7ba7cd9272d01837dad62b36">
+        <dex dex="/home/mehak/Documents/HandwritingRecognitionANN/CloudVision/app/build/intermediates/pre-dexed/debug/guava-jdk5-17.0_de30858e8957bc3e9a6b56feddc5feccd27d0e09.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mehak/.gradle/caches/modules-2/files-2.1/com.google.http-client/google-http-client-gson/1.20.0/9204765f39000f6109c927ac66c7963bf9c7df19/google-http-client-gson-1.20.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="9204765f39000f6109c927ac66c7963bf9c7df19">
+        <dex dex="/home/mehak/Documents/HandwritingRecognitionANN/CloudVision/app/build/intermediates/pre-dexed/debug/google-http-client-gson-1.20.0_ccb171ac97854d84684a442b1caead2c8457b2c5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mehak/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/25.1.1/support-annotations-25.1.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b59b6ee8d6ecc03e672d253800430343493a6ed8">
+        <dex dex="/home/mehak/Documents/HandwritingRecognitionANN/CloudVision/app/build/intermediates/pre-dexed/debug/support-annotations-25.1.1_93fafb097fc7a85d2018a8b287b538a192554631.jar" />
+    </item>
+
+</items>

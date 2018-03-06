@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "/home/manthan/Development/cloud-vision/android/CloudVision/app/build/intermediates/res/merged/debug/drawable-anydpi-v21/design_ic_visibility_off.xml",
+        "source": "/home/manthan/Development/cloud-vision/android/CloudVision/app/build/intermediates/exploded-aar/com.android.support/design/25.1.1/res/drawable-anydpi-v21/design_ic_visibility_off.xml"
+    },
+    {
+        "merged": "/home/manthan/Development/cloud-vision/android/CloudVision/app/build/intermediates/res/merged/debug/drawable-anydpi-v21/design_ic_visibility.xml",
+        "source": "/home/manthan/Development/cloud-vision/android/CloudVision/app/build/intermediates/exploded-aar/com.android.support/design/25.1.1/res/drawable-anydpi-v21/design_ic_visibility.xml"
+    },
+    {
+        "merged": "/home/mehak/Downloads/IOP_android/CloudVision/app/build/intermediates/res/merged/debug/drawable-anydpi-v21/design_ic_visibility_off.xml",
+        "source": "/home/mehak/Downloads/IOP_android/CloudVision/app/build/intermediates/exploded-aar/com.android.support/design/25.1.1/res/drawable-anydpi-v21/design_ic_visibility_off.xml"
+    },
+    {
+        "merged": "/home/mehak/Documents/HandwritingRecognitionANN/CloudVision/app/build/intermediates/res/merged/debug/drawable-anydpi-v21/design_ic_visibility.xml",
+        "source": "/home/mehak/Documents/HandwritingRecognitionANN/CloudVision/app/build/intermediates/exploded-aar/com.android.support/design/25.1.1/res/drawable-anydpi-v21/design_ic_visibility.xml"
+    },
+    {
+        "merged": "/home/mehak/Downloads/IOP_android/CloudVision/app/build/intermediates/res/merged/debug/drawable-anydpi-v21/design_ic_visibility.xml",
+        "source": "/home/mehak/Downloads/IOP_android/CloudVision/app/build/intermediates/exploded-aar/com.android.support/design/25.1.1/res/drawable-anydpi-v21/design_ic_visibility.xml"
+    },
+    {
+        "merged": "/home/mehak/Documents/HandwritingRecognitionANN/CloudVision/app/build/intermediates/res/merged/debug/drawable-anydpi-v21/design_ic_visibility_off.xml",
+        "source": "/home/mehak/Documents/HandwritingRecognitionANN/CloudVision/app/build/intermediates/exploded-aar/com.android.support/design/25.1.1/res/drawable-anydpi-v21/design_ic_visibility_off.xml"
+    }
+]

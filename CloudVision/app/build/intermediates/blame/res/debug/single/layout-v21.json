@@ -1,0 +1,50 @@
+[
+    {
+        "merged": "/home/manthan/Development/cloud-vision/android/CloudVision/app/build/intermediates/res/merged/debug/layout-v21/notification_action.xml",
+        "source": "/home/manthan/Development/cloud-vision/android/CloudVision/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.1/res/layout-v21/notification_action.xml"
+    },
+    {
+        "merged": "/home/mehak/Documents/HandwritingRecognitionANN/CloudVision/app/build/intermediates/res/merged/debug/layout-v21/notification_action.xml",
+        "source": "/home/mehak/Documents/HandwritingRecognitionANN/CloudVision/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.1/res/layout-v21/notification_action.xml"
+    },
+    {
+        "merged": "/home/manthan/Development/cloud-vision/android/CloudVision/app/build/intermediates/res/merged/debug/layout-v21/notification_action_tombstone.xml",
+        "source": "/home/manthan/Development/cloud-vision/android/CloudVision/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.1/res/layout-v21/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "/home/mehak/Downloads/IOP_android/CloudVision/app/build/intermediates/res/merged/debug/layout-v21/notification_action_tombstone.xml",
+        "source": "/home/mehak/Downloads/IOP_android/CloudVision/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.1/res/layout-v21/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "/home/mehak/Downloads/IOP_android/CloudVision/app/build/intermediates/res/merged/debug/layout-v21/notification_template_icon_group.xml",
+        "source": "/home/mehak/Downloads/IOP_android/CloudVision/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.1/res/layout-v21/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "/home/mehak/Downloads/IOP_android/CloudVision/app/build/intermediates/res/merged/debug/layout-v21/notification_action.xml",
+        "source": "/home/mehak/Downloads/IOP_android/CloudVision/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.1/res/layout-v21/notification_action.xml"
+    },
+    {
+        "merged": "/home/manthan/Development/cloud-vision/android/CloudVision/app/build/intermediates/res/merged/debug/layout-v21/notification_template_custom_big.xml",
+        "source": "/home/manthan/Development/cloud-vision/android/CloudVision/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.1/res/layout-v21/notification_template_custom_big.xml"
+    },
+    {
+        "merged": "/home/mehak/Documents/HandwritingRecognitionANN/CloudVision/app/build/intermediates/res/merged/debug/layout-v21/notification_template_icon_group.xml",
+        "source": "/home/mehak/Documents/HandwritingRecognitionANN/CloudVision/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.1/res/layout-v21/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "/home/mehak/Documents/HandwritingRecognitionANN/CloudVision/app/build/intermediates/res/merged/debug/layout-v21/notification_template_custom_big.xml",
+        "source": "/home/mehak/Documents/HandwritingRecognitionANN/CloudVision/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.1/res/layout-v21/notification_template_custom_big.xml"
+    },
+    {
+        "merged": "/home/mehak/Documents/HandwritingRecognitionANN/CloudVision/app/build/intermediates/res/merged/debug/layout-v21/notification_action_tombstone.xml",
+        "source": "/home/mehak/Documents/HandwritingRecognitionANN/CloudVision/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.1/res/layout-v21/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "/home/mehak/Downloads/IOP_android/CloudVision/app/build/intermediates/res/merged/debug/layout-v21/notification_template_custom_big.xml",
+        "source": "/home/mehak/Downloads/IOP_android/CloudVision/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.1/res/layout-v21/notification_template_custom_big.xml"
+    },
+    {
+        "merged": "/home/manthan/Development/cloud-vision/android/CloudVision/app/build/intermediates/res/merged/debug/layout-v21/notification_template_icon_group.xml",
+        "source": "/home/manthan/Development/cloud-vision/android/CloudVision/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.1/res/layout-v21/notification_template_icon_group.xml"
+    }
+]

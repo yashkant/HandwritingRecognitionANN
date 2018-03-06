@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "/home/mehak/Documents/HandwritingRecognitionANN/CloudVision/app/build/intermediates/res/merged/debug/mipmap-xhdpi/ic_launcher.png",
+        "source": "/home/mehak/Documents/HandwritingRecognitionANN/CloudVision/app/src/main/res/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/mehak/Downloads/IOP_android/CloudVision/app/build/intermediates/res/merged/debug/mipmap-xhdpi/ic_launcher.png",
+        "source": "/home/mehak/Downloads/IOP_android/CloudVision/app/src/main/res/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/manthan/Development/cloud-vision/android/CloudVision/app/build/intermediates/res/merged/debug/mipmap-xhdpi/ic_launcher.png",
+        "source": "/home/manthan/Development/cloud-vision/android/CloudVision/app/src/main/res/mipmap-xhdpi/ic_launcher.png"
+    }
+]
